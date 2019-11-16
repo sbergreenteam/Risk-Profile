@@ -23,7 +23,6 @@
 		A72A6A8923800FBB001E6C54 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A8023800FBB001E6C54 /* UITextView.swift */; };
 		A72A6A8A23800FBB001E6C54 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A8123800FBB001E6C54 /* UIView+Layout.swift */; };
 		A72A6A8C23800FE7001E6C54 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A8B23800FE7001E6C54 /* CircularImageView.swift */; };
-		A72A6A9823801758001E6C54 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9623801758001E6C54 /* Page.swift */; };
 		A72A6A9923801758001E6C54 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9723801758001E6C54 /* PageCell.swift */; };
 		A72A6A9B238028A9001E6C54 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = A72A6A9A238028A9001E6C54 /* questions.json */; };
 		A72A6A9F23803262001E6C54 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9E23803262001E6C54 /* Question.swift */; };
@@ -51,7 +50,6 @@
 		A72A6A8023800FBB001E6C54 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		A72A6A8123800FBB001E6C54 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		A72A6A8B23800FE7001E6C54 /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
-		A72A6A9623801758001E6C54 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A72A6A9723801758001E6C54 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		A72A6A9A238028A9001E6C54 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		A72A6A9E23803262001E6C54 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		C9662C3023805A2100862EF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A72A6A9623801758001E6C54 /* Page.swift */,
 				A72A6A9E23803262001E6C54 /* Question.swift */,
 			);
 			path = Model;
@@ -238,7 +235,6 @@
 				A72A6A5E23800595001E6C54 /* AppDelegate.swift in Sources */,
 				A72A6A7723800FA9001E6C54 /* UIColor+Helpers.swift in Sources */,
 				A72A6A8623800FBB001E6C54 /* UIButton.swift in Sources */,
-				A72A6A9823801758001E6C54 /* Page.swift in Sources */,
 				C961B82823807FF40014C19E /* RiskTest.swift in Sources */,
 				C961B8202380693D0014C19E /* Bundle-Decodable.swift in Sources */,
 			);

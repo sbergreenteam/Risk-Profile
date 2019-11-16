@@ -12,6 +12,7 @@ struct Question: Decodable {
     let id: Int
     let question: String
     let answers: Answers
+    let imageName: String
 }
 
 
