@@ -78,7 +78,8 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         
         collectionView?.isPagingEnabled = true
-    
+        
+        
         
     }
     
