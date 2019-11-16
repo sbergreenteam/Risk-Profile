@@ -42,12 +42,11 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
         pc.currentPage = 0
         pc.numberOfPages = pages.count
         pc.currentPageIndicatorTintColor = .mainPink
-        pc.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
+        pc.pageIndicatorTintColor = UIColor.rgb(red: 249, green: 207, blue: 224)
         return pc
     }()
     
     private func setupBottomControls() {
-        
         let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
@@ -60,7 +59,6 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
             bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
             ])
-        
     }
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -73,7 +71,6 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .red
         setupBottomControls()
         
@@ -81,14 +78,21 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         
         collectionView?.isPagingEnabled = true
+    
         
-//        let questions = Bundle.main.decode([QuestionElement].self, from: "ProfileQuestions.json")
-//        print(questions[0].question.self)
-//        print(questions[0].answers)
     }
     
+    private func downloadQuestions() {
+        let questions = Bundle.main.decode([Question].self, from: "questions.json")
+        for q in questions {
+            print(q.question)
+            print(q.answers)
+        }
+    }
 
 }
+
+// MARK: - UICollectionView DataSource, Delegate, Flowlayout
 
 extension RiskProfileViewController {
     
@@ -118,7 +122,6 @@ extension RiskProfileViewController {
 extension RiskProfileViewController {
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-    
         coordinator.animate(alongsideTransition: { (_) in
             self.collectionViewLayout.invalidateLayout()
         
@@ -133,41 +136,9 @@ extension RiskProfileViewController {
         
         }
     }
-
+    
 }
 
 
-extension UIColor {
-    static var mainPink = UIColor(red: 232/255, green: 68/255, blue: 133/255, alpha: 1)
-}
 
-extension Bundle {
-    func decode<T: Decodable>(_ type: T.Type, from file: String, dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> T {
-        guard let url = self.url(forResource: file, withExtension: nil) else {
-            fatalError("Failed to locate \(file) in bundle.")
-        }
-        
-        guard let data = try? Data(contentsOf: url) else {
-            fatalError("Failed to load \(file) from bundle.")
-        }
-        
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = dateDecodingStrategy
-        decoder.keyDecodingStrategy = keyDecodingStrategy
-        
-        do {
-            return try decoder.decode(T.self, from: data)
-        } catch DecodingError.keyNotFound(let key, let context) {
-            fatalError("Failed to decode \(file) from bundle due to missing key '\(key.stringValue)' not found – \(context.debugDescription)")
-        } catch DecodingError.typeMismatch(_, let context) {
-            fatalError("Failed to decode \(file) from bundle due to type mismatch – \(context.debugDescription)")
-        } catch DecodingError.valueNotFound(let type, let context) {
-            fatalError("Failed to decode \(file) from bundle due to missing \(type) value – \(context.debugDescription)")
-        } catch DecodingError.dataCorrupted(_) {
-            fatalError("Failed to decode \(file) from bundle because it appears to be invalid JSON")
-        } catch {
-            fatalError("Failed to decode \(file) from bundle: \(error.localizedDescription)")
-        }
-    }
-}
 

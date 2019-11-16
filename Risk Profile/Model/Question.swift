@@ -1,5 +1,5 @@
 //
-//  Question.swift
+//  QuestionElement.swift
 //  Risk Profile
 //
 //  Created by Ikhtiyor Nurmatov on 16/11/2019.
@@ -9,6 +9,15 @@
 import Foundation
 
 struct Question: Decodable {
+    let id: Int
     let question: String
-    let answers: [String]
+    let answers: Answers
 }
+
+
+struct Answers: Decodable {
+    let a, b: String
+    let c, d, e: String?
+}
+
+

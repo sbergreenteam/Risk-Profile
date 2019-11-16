@@ -25,9 +25,10 @@
 		A72A6A8C23800FE7001E6C54 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A8B23800FE7001E6C54 /* CircularImageView.swift */; };
 		A72A6A9823801758001E6C54 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9623801758001E6C54 /* Page.swift */; };
 		A72A6A9923801758001E6C54 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9723801758001E6C54 /* PageCell.swift */; };
-		A72A6A9B238028A9001E6C54 /* ProfileQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = A72A6A9A238028A9001E6C54 /* ProfileQuestions.json */; };
-		A72A6A9D23802B11001E6C54 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9C23802B11001E6C54 /* Question.swift */; };
-		A72A6A9F23803262001E6C54 /* QuestionElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9E23803262001E6C54 /* QuestionElement.swift */; };
+		A72A6A9B238028A9001E6C54 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = A72A6A9A238028A9001E6C54 /* questions.json */; };
+		A72A6A9F23803262001E6C54 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A6A9E23803262001E6C54 /* Question.swift */; };
+		C961B8202380693D0014C19E /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961B81F2380693D0014C19E /* Bundle-Decodable.swift */; };
+		C961B826238075BB0014C19E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961B825238075BB0014C19E /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,9 +52,10 @@
 		A72A6A8B23800FE7001E6C54 /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		A72A6A9623801758001E6C54 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A72A6A9723801758001E6C54 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
-		A72A6A9A238028A9001E6C54 /* ProfileQuestions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileQuestions.json; sourceTree = "<group>"; };
-		A72A6A9C23802B11001E6C54 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		A72A6A9E23803262001E6C54 /* QuestionElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionElement.swift; sourceTree = "<group>"; };
+		A72A6A9A238028A9001E6C54 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		A72A6A9E23803262001E6C54 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C961B81F2380693D0014C19E /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Bundle-Decodable.swift"; path = "Risk Profile/Helpers/Bundle-Decodable.swift"; sourceTree = SOURCE_ROOT; };
+		C961B825238075BB0014C19E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +91,7 @@
 				C9662C3023805A2100862EF9 /* Model */,
 				C9662C3223805A5F00862EF9 /* View */,
 				C9662C3123805A3300862EF9 /* Controller */,
-				A72A6A9A238028A9001E6C54 /* ProfileQuestions.json */,
+				A72A6A9A238028A9001E6C54 /* questions.json */,
 				A72A6A8D23800FF1001E6C54 /* Helpers */,
 				A72A6A6423800596001E6C54 /* Assets.xcassets */,
 				A72A6A5D23800595001E6C54 /* AppDelegate.swift */,
@@ -104,6 +106,7 @@
 			children = (
 				A72A6A7023800FA9001E6C54 /* AnchoredConstraints.swift */,
 				A72A6A7923800FBB001E6C54 /* AspectFitImageView.swift */,
+				C961B825238075BB0014C19E /* UIImage.swift */,
 				A72A6A7B23800FBB001E6C54 /* IndentedTextField.swift */,
 				A72A6A7D23800FBB001E6C54 /* UIButton.swift */,
 				A72A6A7F23800FBB001E6C54 /* UILabel.swift */,
@@ -114,6 +117,7 @@
 				A72A6A7E23800FBB001E6C54 /* UIView+Stacking.swift */,
 				A72A6A7223800FA9001E6C54 /* UIColor+Helpers.swift */,
 				A72A6A8B23800FE7001E6C54 /* CircularImageView.swift */,
+				C961B81F2380693D0014C19E /* Bundle-Decodable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -121,9 +125,8 @@
 		C9662C3023805A2100862EF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A72A6A9C23802B11001E6C54 /* Question.swift */,
 				A72A6A9623801758001E6C54 /* Page.swift */,
-				A72A6A9E23803262001E6C54 /* QuestionElement.swift */,
+				A72A6A9E23803262001E6C54 /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,7 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A72A6A9B238028A9001E6C54 /* ProfileQuestions.json in Resources */,
+				A72A6A9B238028A9001E6C54 /* questions.json in Resources */,
 				A72A6A6823800596001E6C54 /* LaunchScreen.storyboard in Resources */,
 				A72A6A6523800596001E6C54 /* Assets.xcassets in Resources */,
 			);
@@ -216,14 +219,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72A6A8723800FBB001E6C54 /* UIView+Stacking.swift in Sources */,
+				C961B826238075BB0014C19E /* UIImage.swift in Sources */,
 				A72A6A8923800FBB001E6C54 /* UITextView.swift in Sources */,
 				A72A6A6023800595001E6C54 /* RiskProfileViewController.swift in Sources */,
-				A72A6A9D23802B11001E6C54 /* Question.swift in Sources */,
 				A72A6A7523800FA9001E6C54 /* AnchoredConstraints.swift in Sources */,
 				A72A6A8823800FBB001E6C54 /* UILabel.swift in Sources */,
 				A72A6A8423800FBB001E6C54 /* IndentedTextField.swift in Sources */,
 				A72A6A9923801758001E6C54 /* PageCell.swift in Sources */,
-				A72A6A9F23803262001E6C54 /* QuestionElement.swift in Sources */,
+				A72A6A9F23803262001E6C54 /* Question.swift in Sources */,
 				A72A6A8523800FBB001E6C54 /* UIStackView.swift in Sources */,
 				A72A6A8A23800FBB001E6C54 /* UIView+Layout.swift in Sources */,
 				A72A6A8223800FBB001E6C54 /* AspectFitImageView.swift in Sources */,
@@ -233,6 +236,7 @@
 				A72A6A7723800FA9001E6C54 /* UIColor+Helpers.swift in Sources */,
 				A72A6A8623800FBB001E6C54 /* UIButton.swift in Sources */,
 				A72A6A9823801758001E6C54 /* Page.swift in Sources */,
+				C961B8202380693D0014C19E /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
