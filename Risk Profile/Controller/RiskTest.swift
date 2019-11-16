@@ -9,7 +9,7 @@
 
 import Foundation
 
-// MARK: - Код Даниила Корягина
+// MARK: - КОД ДАНИИЛА КОРЯГИНА
 
 //print(RiskTest.assessAnswers(mas: ["d", "b", "c", "d", "d", "c", "b", "b", "b"]))
 

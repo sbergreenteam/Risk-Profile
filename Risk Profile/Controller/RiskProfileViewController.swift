@@ -21,7 +21,7 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    private let nextButton = UIButton(title: "СЛЕД", titleColor: .mainPink, font: .boldSystemFont(ofSize: 14), target: self, action: #selector(handleNext))
+    private let nextButton = UIButton(title: "СЛЕД", titleColor: .rgb(red: 78, green: 228, blue: 78), font: .boldSystemFont(ofSize: 14), target: self, action: #selector(handleNext))
     
     @objc private func handleNext() {
         let nextIndex = min(pageControl.currentPage + 1, questions.count - 1)
@@ -34,7 +34,7 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
         let pc = UIPageControl()
         pc.currentPage = 0
         pc.numberOfPages = self.questions.count
-        pc.currentPageIndicatorTintColor = .mainPink
+        pc.currentPageIndicatorTintColor = UIColor.rgb(red: 78, green: 228, blue: 78)
         pc.pageIndicatorTintColor = UIColor.rgb(red: 249, green: 207, blue: 224)
         return pc
     }()
@@ -70,7 +70,7 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
         setupBottomControls()
         
         collectionView?.backgroundColor = .white
-        collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
+        registerCells()
         
         collectionView?.isPagingEnabled = true
         
@@ -81,6 +81,11 @@ class RiskProfileViewController: UICollectionViewController, UICollectionViewDel
     private func downloadQuestions() {
         self.questions = Bundle.main.decode([Question].self, from: "questions.json")
         
+    }
+    
+    private func registerCells() {
+        collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(FinalCell.self, forCellWithReuseIdentifier: "finalCellId")
     }
 
 }
@@ -98,8 +103,15 @@ extension RiskProfileViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
         
+        if indexPath.item == questions.count {
+            let finalCell = collectionView.dequeueReusableCell(withReuseIdentifier: "finalCellId", for: indexPath) as! FinalCell
+            finalCell.imageView.image = UIImage(bundleName: "final")
+            return finalCell
+        }
+        
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
         let question = questions[indexPath.item]
         cell.page = question
         return cell
